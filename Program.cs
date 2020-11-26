@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Inlämningsuppgift1
 {
@@ -6,14 +7,149 @@ namespace Inlämningsuppgift1
     {
         static void Main(string[] args)
         {
+            List<int> allResults = new List<int>();
+
             //Använder en metod för uppgiften
+            bool tryAgain = true;
+            
+
+            
+            while (tryAgain)
+            {
+                 int i = BeräkningAvTreTal();
+                Console.Write("Vill du fortsätta spela Y/N? : ");
+                string keepPlaying = Console.ReadLine();
+                if (keepPlaying == "Y" || keepPlaying == "y")
+                {
+                    tryAgain = true;
+                } else
+                {
+                    tryAgain = false;
+                }
+            }   
         }
+       
+        static int BeräkningAvTreTal()
+        {
+            int resultat;
 
-        bool tryAgain = true;
+            Console.Write("Enter first operator: ");
+            string firstOperator = Console.ReadLine();
+            Console.Write("Enter second operator: ");
+            string secondOperator = Console.ReadLine();
+            Console.Write("Enter first temr: ");
+            int förstaTal = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter second temr: ");
+            int andraTal = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter third temr: ");
+            int tredjeTal = Convert.ToInt32(Console.ReadLine());
 
+            resultat = 0;
+
+            if (firstOperator == "+" && secondOperator == "+")
+            {
+                resultat = förstaTal + andraTal + tredjeTal;
+               
+                
+               
+            } else if (firstOperator == "-" && secondOperator == "+")
+            {
+                resultat = förstaTal - andraTal + tredjeTal;
+                
+
+            } else if (firstOperator == "-" && secondOperator == "-")
+            {
+                resultat = förstaTal - andraTal - tredjeTal;
+                
+
+            } else if (firstOperator == "+" && secondOperator == "-")
+            {
+                resultat = förstaTal + andraTal - tredjeTal;
+                
+
+            } else if (firstOperator == "+" && secondOperator == "*")
+            {
+                resultat = förstaTal + (andraTal * tredjeTal);
+                
+
+            } else if (firstOperator == "+" && secondOperator == "/")
+            {
+                resultat = förstaTal + (andraTal / tredjeTal);
+                
+
+            } else if (firstOperator == "-" && secondOperator == "*")
+            {
+                resultat = förstaTal - (andraTal * tredjeTal);
+                
+
+            } else if (firstOperator == "-" && secondOperator == "/")
+            {
+                resultat = förstaTal - (andraTal / tredjeTal);
+                
+
+            } else if (firstOperator == "*" && secondOperator == "+")
+            {
+                resultat = förstaTal * andraTal + tredjeTal;
+                
+
+            } else if (firstOperator == "*" && secondOperator == "-")
+            {
+                resultat = förstaTal * andraTal - tredjeTal;
+                
+
+            } else if (firstOperator == "*" && secondOperator == "*")
+            {
+                resultat = förstaTal * andraTal * tredjeTal;
+                
+
+            } else if (firstOperator == "*" && secondOperator == "/")
+            {
+                resultat = förstaTal * andraTal / tredjeTal;
+                
+            }
+            else if (firstOperator == "/" && secondOperator == "+")
+            {
+                resultat = förstaTal / andraTal + tredjeTal;
+                
+
+            } else if (firstOperator == "/" && secondOperator == "-")
+            {
+                resultat = förstaTal / andraTal - tredjeTal;
+                
+            }
+            else if (firstOperator == "/" && secondOperator == "*")
+            {
+                resultat = förstaTal / andraTal * tredjeTal;
+               
+            } else if (firstOperator == "/" && secondOperator == "/")
+            {
+                resultat = förstaTal / andraTal / tredjeTal;
+                
+            } else
+            {
+                Console.Write("Du har matat in fel operator. Försök igen (Y) eller avsluta programmet (N): ");
+            }
+            Console.WriteLine(förstaTal + firstOperator + andraTal + secondOperator + tredjeTal + "=" + resultat);
+
+            if (resultat < 100)
+            {
+                Console.WriteLine("The sum is less then a hundred");
+            }
+            else if (resultat > 100)
+            {
+                Console.WriteLine("The sum is more then a hundred");
+            }
+            else Console.WriteLine("B I N G O - you are a winner");
+
+            return resultat;
+            }
+        // här avslutas metoden beräkning av tre tal
+
+       
         
     }
 }
+
 //Inlämningsuppgift 1
 //•	Be användaren att ange ett par operatorer
 //•	Be sedan användaren om ett par termer att använda operatorerna på
