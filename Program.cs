@@ -7,6 +7,8 @@ namespace Inlämningsuppgift1
     {
         static void Main(string[] args)
         {
+            Console.Title = "Inlämningsuppgift 1";
+
             List<int> allResults = new List<int>();
 
             //Använder en metod för uppgiften
