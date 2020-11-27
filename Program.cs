@@ -11,14 +11,16 @@ namespace Inlämningsuppgift1
 
             //Använder en metod för uppgiften
             bool tryAgain = true;
-            
 
+            int summa = 0;
             
             while (tryAgain)
             {
                  int i = BeräkningAvTreTal();
                 Console.Write("Vill du fortsätta spela Y/N? : ");
                 string keepPlaying = Console.ReadLine();
+                allResults.Add(i);
+                summa += i;
                 if (keepPlaying == "Y" || keepPlaying == "y")
                 {
                     tryAgain = true;
@@ -26,7 +28,11 @@ namespace Inlämningsuppgift1
                 {
                     tryAgain = false;
                 }
-            }   
+               
+            }
+            Console.Write("Alla svar i en lista: ");
+            Console.WriteLine(string.Join(' ', allResults));
+            Console.WriteLine("Summan av alla försök är {0}", summa);
         }
        
         static int BeräkningAvTreTal()
